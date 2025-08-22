@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portofolio Miftahul Muzaki</title>
   <style>
-    /* Reset */
     * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
 
     body {
@@ -30,7 +29,10 @@
       align-items: center;
       gap: 30px;
       animation: fadeIn 1s ease-in-out;
+      transition: 0.3s;
     }
+
+    .card:hover { transform: translateY(-5px); }
 
     .profile-pic {
       flex: 1 1 250px;
@@ -47,13 +49,9 @@
       transition: transform 0.3s ease;
     }
 
-    .profile-pic img:hover {
-      transform: scale(1.05);
-    }
+    .profile-pic img:hover { transform: scale(1.05); }
 
-    .info {
-      flex: 2 1 400px;
-    }
+    .info { flex: 2 1 400px; }
 
     .info h1 {
       font-size: 2.2rem;
@@ -61,9 +59,7 @@
       color: #f1f1f1;
     }
 
-    .info h1 span {
-      color: #ffdf2b;
-    }
+    .info h1 span { color: #ffdf2b; }
 
     .info h3 {
       font-weight: 400;
@@ -80,16 +76,20 @@
       display: flex;
       gap: 15px;
       margin-bottom: 20px;
+      flex-wrap: wrap;
     }
 
     .btns a {
       text-decoration: none;
       padding: 10px 18px;
       border-radius: 10px;
-      background: #ffdf2b;
+      background: linear-gradient(45deg, #ffdf2b, #ff8c00);
       color: #111;
       font-weight: bold;
       transition: 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btns a:hover {
@@ -97,9 +97,7 @@
       transform: translateY(-3px);
     }
 
-    .skills, .experience {
-      margin-top: 20px;
-    }
+    .skills, .experience { margin-top: 20px; }
 
     .skills h2, .experience h2 {
       font-size: 1.3rem;
@@ -107,9 +105,31 @@
       color: #ffdf2b;
     }
 
-    ul {
-      margin-left: 20px;
-      line-height: 1.6;
+    ul { margin-left: 20px; line-height: 1.6; }
+
+    /* Musik & Galeri Button */
+    .extra-btns {
+      margin-top: 20px;
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .extra-btns button, .extra-btns a {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 10px;
+      background: #ffdf2b;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .extra-btns button:hover, .extra-btns a:hover {
+      background: #fff;
+      transform: translateY(-2px);
     }
 
     @keyframes fadeIn {
@@ -117,15 +137,10 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .card {
-        flex-direction: column;
-        text-align: center;
-      }
-      .btns {
-        justify-content: center;
-      }
+      .card { flex-direction: column; text-align: center; }
+      .btns { justify-content: center; }
+      .extra-btns { justify-content: center; }
     }
   </style>
 </head>
@@ -142,10 +157,10 @@
       <h3>Kameramen & Editor</h3>
       <p>Memiliki hobi fotografi dan videografi. Saya senang belajar hal baru dalam dunia kreatif dan terus mengembangkan kemampuan saya.</p>
 
-      <!-- Tombol -->
+      <!-- Tombol Sosmed -->
       <div class="btns">
-        <a href="https://wa.me/6283849948367" target="_blank">WhatsApp</a>
-        <a href="https://instagram.com/mifta_hulmuzaki" target="_blank">Instagram</a>
+        <a href="https://wa.me/6283849948367" target="_blank">📱 WhatsApp</a>
+        <a href="https://instagram.com/mifta_hulmuzaki" target="_blank">📸 Instagram</a>
       </div>
 
       <!-- Skills -->
@@ -165,13 +180,32 @@
         <p>Saya sudah menekuni dunia foto dan video lebih dari 3 tahun.  
         Pernah terlibat dalam dokumentasi acara sekolah, wedding, hingga konten media sosial.</p>
       </div>
+
+      <!-- Tombol Musik & Galeri -->
+      <div class="extra-btns">
+        <button id="musicBtn">🔊 Putar Musik</button>
+        <a href="galeri.html">🖼️ Galeri Foto</a>
+      </div>
+
+      <!-- Audio -->
+      <audio id="bgMusic" loop>
+        <source src="ssstik.io_1755694639379.mp3" type="audio/mpeg">
+      </audio>
     </div>
   </div>
-  <!-- Musik Background -->
-<audio autoplay loop hidden>
-  <source src="ssstik.io_1755694639379.mp3" type="audio/mpeg">
-</audio>
-</body>
-</html>
+
+  <script>
+    const music = document.getElementById("bgMusic");
+    const btn = document.getElementById("musicBtn");
+    btn.addEventListener("click", () => {
+      if(music.paused){
+        music.play();
+        btn.textContent = "🔇 Matikan Musik";
+      } else {
+        music.pause();
+        btn.textContent = "🔊 Putar Musik";
+      }
+    });
+  </script>
 </body>
 </html>
