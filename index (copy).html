@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeri Foto - Miftahul Muzaki</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #ffdf2b;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      height: 180px;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-grid img:hover { transform: scale(1.05); }
+
+    .back {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 18px;
+      background: #ffdf2b;
+      color: #111;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .back:hover {
+      background: #fff;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <h1>🖼️ Galeri Karya Foto</h1>
+  <div class="gallery-grid">
+    <img src="foto1.jpg" alt="Foto Karya 1">
+    <img src="foto2.jpg" alt="Foto Karya 2">
+    <img src="foto3.jpg" alt="Foto Karya 3">
+    <img src="foto4.jpg" alt="Foto Karya 4">
+  </div>
+
+  <a href="index.html" class="back">⬅️ Kembali ke Portofolio</a>
+</body>
+</html>
