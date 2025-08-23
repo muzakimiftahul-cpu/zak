@@ -3,142 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri & Upload Karya - Miftahul Muzaki</title>
+  <title>Galeri Karya Foto</title>
   <style>
     body {
-      background: linear-gradient(135deg, #1d2671, #c33764);
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
       margin: 0;
-    }
-
-    h1, h2 {
+      padding: 0;
       text-align: center;
-      margin-bottom: 20px;
-      color: #ffdf2b;
     }
 
-    /* --- Galeri Foto --- */
+    h1 {
+      margin-top: 80px;
+    }
+
+    /* --- Grid Galeri --- */
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 15px;
+      padding: 20px;
     }
-
     .gallery-item {
-      background: rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 10px;
-      text-align: center;
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
     }
-
+    .gallery-item:hover {
+      transform: translateY(-2px);
+    }
     .gallery-item img {
       width: 100%;
-      border-radius: 12px;
+      height: 200px;
       object-fit: cover;
-      height: 180px;
-      transition: transform 0.3s;
-      cursor: pointer;
+      display: block;
     }
-
-    .gallery-item img:hover { transform: scale(1.05); }
-
     .caption {
-      margin-top: 8px;
+      padding: 8px;
       font-size: 14px;
-      color: #fff;
     }
 
-    /* --- Filter Button --- */
+    /* --- Filter Tombol --- */
     .filter-buttons {
-      text-align: center;
-      margin: 20px 0;
+      margin: 15px 0;
     }
     .filter-buttons button {
-      background: #ffdf2b;
-      color: #111;
-      border: none;
-      padding: 10px 18px;
+      padding: 8px 15px;
       margin: 5px;
-      border-radius: 10px;
-      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
       cursor: pointer;
       transition: 0.3s;
     }
     .filter-buttons button:hover {
-      background: #fff;
-      transform: scale(1.05);
+      background: #0056b3;
     }
 
-    /* --- Popup Fullscreen --- */
+    /* --- Popup --- */
     .popup {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0; top: 0;
+      top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.9);
+      background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
-
     .popup img {
       max-width: 90%;
-      max-height: 80%;
-      border-radius: 15px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.8);
+      max-height: 90%;
+      border-radius: 10px;
     }
-
-    .close {
-      position: fixed;
+    .popup .close {
+      position: absolute;
       top: 20px;
       right: 30px;
       font-size: 40px;
-      font-weight: bold;
-      color: #fff;
+      color: white;
       cursor: pointer;
       z-index: 1100;
     }
 
     /* --- Upload Section --- */
     .upload-section {
-      margin-top: 50px;
-      text-align: center;
+      margin: 30px;
     }
-
-    a.btn {
+    .btn {
       display: inline-block;
-      background: #ffdf2b;
-      color: #111;
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 12px;
-      font-weight: bold;
       transition: 0.3s;
     }
-
-    a.btn:hover {
-      background: #fff;
-      transform: scale(1.05);
+    .btn:hover {
+      background: #218838;
     }
 
+    /* --- Tombol Kembali --- */
     .back {
-      display: block;
-      margin: 40px auto 20px auto;
-      padding: 10px 18px;
-      background: #ffdf2b;
-      color: #111;
+      display: inline-block;
+      margin: 20px;
+      padding: 8px 15px;
+      background: #ff5722;
+      color: white;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 10px;
-      text-align: center;
-      max-width: 200px;
+      transition: 0.3s;
     }
-
     .back:hover {
-      background: #fff;
-      transform: translateY(-2px);
+      background: #e64a19;
     }
 
     /* --- Tombol Musik --- */
@@ -181,7 +162,7 @@
   <div class="gallery-grid">
     <div class="gallery-item horizontal">
       <img src="20250707_091744.jpg" alt="Foto Karya 1">
-      <div class="caption"> pegununga di pagi hari</div>
+      <div class="caption">pegunungan di pagi hari</div>
     </div>
     <div class="gallery-item vertical">
       <img src="PXL_20250116_091310709 (1).jpg" alt="Foto Karya 2">
@@ -189,24 +170,23 @@
     </div>
     <div class="gallery-item horizontal">
       <img src="PXL_20250116_091429173.jpg" alt="Foto Karya 3">
-      <div class="caption"> bangunan pasar penuh kenangan</div>
+      <div class="caption">bangunan pasar penuh kenangan</div>
     </div>
     <div class="gallery-item vertical">
       <img src="PXL_20250116_092212267.jpg" alt="Foto Karya 4">
-      <div class="caption"> kucing pasar</div>
+      <div class="caption">kucing pasar</div>
+    </div>
+    <div class="gallery-item vertical">
+      <img src="1754368692537 - ALDI SYA'BANI.jpg" alt="Foto Karya 5">
+      <div class="caption">hasil karya aldi</div>
     </div>
   </div>
-  <div class="gallery-item vertical">
-      <img src="1754368692537 - ALDI SYA'BANI.jpg" alt="Foto Karya 5">
-      <div class="caption"> hasil karya aldi </div>
-    </div>
-</div>
 
   <!-- Upload Karya -->
   <div class="upload-section">
-    <h2>Upload Karya mu</h2>
-    <p>sing pengin upload karyamu:</p>
-    <a href="https://forms.gle/yDRNDYJZsEfw36q88" class="btn" target="_blank"> uplud kene</a>
+    <h2>Upload Karyamu</h2>
+    <p>Sing pengin upload karyamu:</p>
+    <a href="https://forms.gle/yDRNDYJZsEfw36q88" class="btn" target="_blank">Upload Kene</a>
   </div>
 
   <!-- Tombol Kembali -->
