@@ -3,126 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeri Karya Foto</title>
+  <title>Galeri Karya</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f0f0f0;
       margin: 0;
       padding: 0;
+      background: linear-gradient(to right, #f9f9f9, #e6f0ff);
+      color: #111;
       text-align: center;
     }
 
     h1 {
       margin-top: 80px;
+      color: #333;
     }
 
-    /* --- Grid Galeri --- */
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .gallery-item {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .gallery-item:hover {
-      transform: translateY(-2px);
-    }
-    .gallery-item img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      display: block;
-    }
-    .caption {
-      padding: 8px;
-      font-size: 14px;
-    }
-
-    /* --- Filter Tombol --- */
-    .filter-buttons {
-      margin: 15px 0;
-    }
-    .filter-buttons button {
-      padding: 8px 15px;
-      margin: 5px;
-      border: none;
-      border-radius: 8px;
-      background: #007bff;
-      color: white;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .filter-buttons button:hover {
-      background: #0056b3;
-    }
-
-    /* --- Popup --- */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-    .popup img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 10px;
-    }
-    .popup .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 40px;
-      color: white;
-      cursor: pointer;
-      z-index: 1100;
-    }
-
-    /* --- Upload Section --- */
-    .upload-section {
-      margin: 30px;
-    }
-    .btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background: #28a745;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #218838;
-    }
-
-    /* --- Tombol Kembali --- */
-    .back {
-      display: inline-block;
-      margin: 20px;
-      padding: 8px 15px;
-      background: #ff5722;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-    .back:hover {
-      background: #e64a19;
-    }
-
-    /* --- Tombol Musik --- */
+    /* Tombol Musik */
     .music-btn {
       position: fixed;
       top: 20px;
@@ -133,23 +30,136 @@
       border-radius: 12px;
       font-weight: bold;
       cursor: pointer;
-      z-index: 1200;
+      z-index: 1500;
       transition: 0.3s;
     }
     .music-btn:hover {
       background: #fff;
       transform: scale(1.05);
     }
+
+    /* Filter Buttons */
+    .filter-buttons {
+      margin: 20px 0;
+    }
+    .filter-buttons button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: #0077ff;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .filter-buttons button:hover {
+      background: #005fcc;
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      padding: 20px;
+    }
+    .gallery-item {
+      background: #fff;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+    }
+    .gallery-item img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .caption {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    /* Upload */
+    .upload-section {
+      margin: 40px 0;
+      padding: 20px;
+      background: #f4f4f4;
+      border-radius: 12px;
+    }
+    .upload-section .btn {
+      display: inline-block;
+      padding: 10px 15px;
+      background: #ff5722;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .upload-section .btn:hover {
+      background: #e64a19;
+    }
+
+    /* Tombol Kembali */
+    .back {
+      display: inline-block;
+      margin: 30px 0;
+      padding: 10px 15px;
+      background: #444;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .back:hover {
+      background: #000;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .popup img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .popup .close:hover {
+      color: red;
+    }
   </style>
 </head>
 <body>
+
   <!-- Tombol Musik -->
-  <button class="music-btn" onclick="toggleMusic()">🎵 Putar Musik</button>
+  <button class="music-btn" onclick="toggleMusic()">🎵 Musik</button>
   <audio id="bg-music" loop>
     <source src="ssstik.io_1755694639379.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- Galeri Foto -->
   <h1>🖼️ Galeri Karya Foto</h1>
 
   <!-- Filter -->
@@ -159,34 +169,35 @@
     <button onclick="filterGallery('vertical')">Vertikal</button>
   </div>
 
+  <!-- Galeri -->
   <div class="gallery-grid">
     <div class="gallery-item horizontal">
       <img src="20250707_091744.jpg" alt="Foto Karya 1">
-      <div class="caption">pegunungan di pagi hari</div>
+      <div class="caption">Pegunungan di pagi hari</div>
     </div>
     <div class="gallery-item vertical">
       <img src="PXL_20250116_091310709 (1).jpg" alt="Foto Karya 2">
-      <div class="caption">motor matic</div>
+      <div class="caption">Motor matic</div>
     </div>
     <div class="gallery-item horizontal">
       <img src="PXL_20250116_091429173.jpg" alt="Foto Karya 3">
-      <div class="caption">bangunan pasar penuh kenangan</div>
+      <div class="caption">Bangunan pasar penuh kenangan</div>
     </div>
     <div class="gallery-item vertical">
       <img src="PXL_20250116_092212267.jpg" alt="Foto Karya 4">
-      <div class="caption">kucing pasar</div>
+      <div class="caption">Kucing pasar</div>
     </div>
     <div class="gallery-item vertical">
       <img src="1754368692537 - ALDI SYA'BANI.jpg" alt="Foto Karya 5">
-      <div class="caption">hasil karya aldi</div>
+      <div class="caption">Hasil karya Aldi</div>
     </div>
   </div>
 
   <!-- Upload Karya -->
   <div class="upload-section">
     <h2>Upload Karyamu</h2>
-    <p>Sing pengin upload karyamu:</p>
-    <a href="https://forms.gle/yDRNDYJZsEfw36q88" class="btn" target="_blank">Upload Kene</a>
+    <p>Kalau pengin upload karyamu, klik tombol di bawah ini:</p>
+    <a href="https://forms.gle/yDRNDYJZsEfw36q88" class="btn" target="_blank">Upload di sini</a>
   </div>
 
   <!-- Tombol Kembali -->
@@ -239,5 +250,6 @@
       });
     }
   </script>
+
 </body>
 </html>
